@@ -31,21 +31,14 @@ def signup():
         flash(f'Thank you for signing up {new_user.username}!', 'danger')
 
         # Redirect user back to home page
-        return redirect(url_for('index'))
+        return redirect(url_for('profile.html'))
 
         
-    return render_template('signup.html', title='Register for CT Blog', form=form)
+    return render_template('signup.html', title='I GOT YOU!', form=form)
 
  
    
     
-
-
-
-
-
-
-
 
 
 @app.route('/Login', methods=['GET','POST'])
@@ -59,13 +52,13 @@ def login():
 
         if user is None or not user.check_password(password):
             flash('Incorrect Username/Password. Please try again!', 'danger')
-            return redirect(url_for('login'))
+            return redirect(url_for('Login'))
         
         login_user(user)
         flash('You have succesfully logged in!', 'success')
         return redirect(url_for('index'))
 
-    return render_template('login.html', form=form)
+    return render_template('Login.html', form=form)
 
 @app.route('/logout')
 @login_required
