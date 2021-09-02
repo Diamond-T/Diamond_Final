@@ -11,10 +11,26 @@
         <title>{{ title }}</title>
     </head>
     <body style="background-color:pink;"> 
-    {% include 'nav.html' %}  
-    
-    {% block content %} {% endblock content %}
-     
+    {% include 'nav.html' %}
+        
+        <div class="container">
+        
+          {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+              {% for category, message in messages %}
+              <div class="alert alert-{{ category }} alert-dismissible fade show" role="alert">
+                {{ message }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+              </div>
+              {% endfor %}
+            {% endif %}
+          {% endwith %}
+
+
+          {% block content %}
+
+          {% endblock content %}
+        </div>
     
 </html>
 </body>

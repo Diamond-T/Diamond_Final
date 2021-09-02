@@ -62,7 +62,7 @@ def login():
         
         login_user(user)
         flash('You have succesfully logged in!', 'success')
-        return redirect(url_for('index'))
+        return redirect(url_for('questions'))
 
     return render_template('Login.html', form=form)
 
