@@ -9,9 +9,15 @@ from app.models import User
 
 @app.route('/')
 def main_page ():
-    return render_template('index.html')
 
-@app.route('/signup')
+    return render_template('index.html')
+    
+
+@app.route('/questions')
+def questions():
+    return render_template('questions.html')
+
+@app.route('/signup',  methods=['GET', 'POST'])
 def signup():
     form = register()
     if form.validate_on_submit():
@@ -30,8 +36,8 @@ def signup():
         # Once new_user is added to db, flash success message
         flash(f'Thank you for signing up {new_user.username}!', 'danger')
 
-        # Redirect user back to home page
-        return redirect(url_for('profile.html'))
+        # Redirect user to there profile
+        return redirect(url_for('questions.html'))
 
         
     return render_template('signup.html', title='I GOT YOU!', form=form)

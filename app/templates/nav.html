@@ -13,11 +13,7 @@
         <a class="nav-link" href="{{url_for('login')}}">Sign In</a>
          {% endif %}
         </i>
-        {% if current_user.is_anonymous %}
-        <li class="nav-item">
-        <a class="nav-link" href="{{url_for('signup')}}">Sign Up</a>
-        </i>
-         {% endif %}
+        
         <li class="nav-item">
         {% if current_user.is_authenticated %}
         <a class="nav-link" href="{{url_for('logout')}}">LogOut</a>

@@ -106,7 +106,8 @@
 </head>
 <body>
 <div class="signup-form">
-    <form action="/examples/actions/confirmation.php" method="post" action="/signup">
+    <form action="" method="post" action="/signup">
+    {{ form.csrf_token }}
 		<h2>Sign Up</h2>
 		<p>Please fill in this form to create an account! You Got This!</p>
 		<hr>
