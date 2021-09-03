@@ -7,6 +7,12 @@ from config import Config
 
 app = Flask(__name__)
 app.config.from_object(Config)
+db_name = 'Diamonds.db'
+
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + db_name
+
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
+
 
 CORS(app)
 
